@@ -14,7 +14,11 @@ data "archive_file" "dummy" {
 ### LAMBDA FUNCTION ###
 resource "aws_lambda_function" "this_function" {
   filename = data.archive_file.dummy.output_path
-
+  lifecycle {
+    ignore_changes = [
+      filename
+    ]
+  }
   environment {
     variables = {
       environment              = var.environment
