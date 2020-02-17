@@ -101,3 +101,9 @@ variable "runtime" {
   type        = string
   default     = "python3.6"
 }
+
+variable "timeout" {
+  description = "timeout lambdas"
+  type        = string
+  default     = 10
+}
