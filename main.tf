@@ -39,6 +39,7 @@ resource "aws_lambda_function" "this_function" {
   role          = var.role
   handler       = var.handler
   runtime       = var.runtime
+  timeout       = var.timeout
   tags = {
     Project = var.project
     Stages  = var.environment
