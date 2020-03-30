@@ -115,7 +115,7 @@ variable "filename" {
 
 variable "sqs_trigger" {
   description = "enable or disable sqs trigger"
-  type        = boole
+  type        = bool
   default     = false 
 } 
 
