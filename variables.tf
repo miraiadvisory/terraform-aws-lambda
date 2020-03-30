@@ -71,3 +71,8 @@ variable "sqs_queue_arn" {
   default = ""
 }
 
+variable "stage" {
+  description = "stage"
+  type = string
+  default = "dev"
+}

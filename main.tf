@@ -41,7 +41,7 @@ resource "aws_lambda_function" "this_function" {
   timeout       = var.timeout
   tags = {
     Project = var.project
-    Stages  = var.environment
+    Stages  = var.stage
   }
 }
 
