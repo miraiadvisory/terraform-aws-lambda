@@ -53,6 +53,6 @@ resource "aws_lambda_function" "this_function" {
 resource "aws_lambda_event_source_mapping" "this_sqs_trigger" {
   count = var.sqs_trigger? 1 : 0 
 
-  event_source_arn = "var.sqs_queue_arn"
-  function_name    = "${aws_lambda_function.this_function.arn}"
+  event_source_arn = var.sqs_queue_arn
+  function_name    = aws_lambda_function.this_function.arn
 }
