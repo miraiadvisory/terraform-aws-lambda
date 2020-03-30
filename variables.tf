@@ -1,7 +1,3 @@
-variable "s3_bucket" {
-  description = "bucket of the lambda"
-  type        = string
-}
 
 variable project {
   description = "project"
@@ -60,6 +56,7 @@ variable "timeout" {
 variable "filename" {
   description = "lambda filename"
   type = string
+  default = ""
 }
 
 variable "sqs_trigger" {
