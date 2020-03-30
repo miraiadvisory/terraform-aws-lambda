@@ -107,7 +107,20 @@ variable "timeout" {
   type        = string
   default     = 10
 }
+
 variable "filename" {
   description = "lambda filename"
   type = string
 }
+
+variable "sqs_trigger" {
+  description = "enable or disable sqs trigger"
+  type        = boole
+  default     = false 
+} 
+
+variable "sqs_queue_arn" {
+  description = "arn of sqs for trigger"
+  type        = string
+}
+
