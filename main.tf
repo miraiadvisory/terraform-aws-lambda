@@ -3,10 +3,7 @@ locals {
   lambda_filename = var.filename == "" ? data.archive_file.dummy.output_path : var.filename
   env_vars = [
   for item in keys(var.environment) :
-    map(
-      "key", item,
-      "value", element(values(var.environment), index(keys(var.environment), item)),
-    )
+      item => element(values(var.environment), index(keys(var.environment), item))
   ]
 }
 
@@ -30,7 +27,7 @@ resource "aws_lambda_function" "this_function" {
     ]
   }
   environment {
-    variables = local.env_vars
+    variables = { local.env_vars }
   }
 
   function_name = "${var.lambda_function}-${var.lambda_version}"
