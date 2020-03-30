@@ -13,57 +13,6 @@ variable environment {
   type        = string
 }
 
-variable deploy_bucket {
-  description = "deploy bucket"
-  type        = string
-}
-
-variable service_role {
-  description = "EMR Service Role"
-  type        = string
-  default     = "EMR_DefaultRole"
-}
-
-variable job_flow_role {
-  description = "EMR Job EC2 Role"
-  type        = string
-  default     = "EMR_EC2_DefaultRole"
-}
-
-variable ec2_key_name {
-  description = "EC2 KEY"
-  type        = string
-  default     = "emr-ec2"
-}
-
-variable ec2_subnet_id {
-  description = "ec2 subnet id"
-  type        = string
-  default     = "eu-west-2a"
-}
-
-variable additional_emr_master_sg {
-  description = "SG for master EMR"
-  type        = string
-  default     = ""
-}
-
-variable additional_emr_slaves_sg {
-  description = "SG for slaves EMR"
-  type        = string
-}
-
-variable emr_service_access {
-  description = "SG for EMR Service"
-  type        = string
-}
-
-variable slaves_capacity {
-  description = "Slaves Instances Capacity"
-  type        = string
-  default = 1
-}
-
 variable function_name {
   description = "Function name"
   type        = string
@@ -122,5 +71,6 @@ variable "sqs_trigger" {
 variable "sqs_queue_arn" {
   description = "arn of sqs for trigger"
   type        = string
+  default = ""
 }
 
