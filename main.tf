@@ -27,7 +27,7 @@ resource "aws_lambda_function" "this_function" {
     ]
   }
   environment {
-    variables = { local.env_vars }
+    variables =  local.env_vars 
   }
 
   function_name = "${var.lambda_function}-${var.lambda_version}"
