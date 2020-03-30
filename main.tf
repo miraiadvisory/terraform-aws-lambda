@@ -1,10 +1,10 @@
 # Tadaima module
 locals {
   lambda_filename = var.filename == "" ? data.archive_file.dummy.output_path : var.filename
-  env_vars = [
+  env_vars = {
   for item in keys(var.environment) :
       item => element(values(var.environment), index(keys(var.environment), item))
-  ]
+  }
 }
 
 ### DATA DEFINITION ###
