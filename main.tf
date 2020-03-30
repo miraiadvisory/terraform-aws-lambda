@@ -1,4 +1,7 @@
 # Tadaima module
+locals {
+    lambda_filename = var.filename == "" ? data.archive_file.dummy.output_path : var.filename
+}
 
 ### DATA DEFINITION ###
 data "archive_file" "dummy" {
@@ -13,7 +16,7 @@ data "archive_file" "dummy" {
 
 ### LAMBDA FUNCTION ###
 resource "aws_lambda_function" "this_function" {
-  filename = data.archive_file.dummy.output_path
+  filename = local.lambda_filename
   lifecycle {
     ignore_changes = [
       filename

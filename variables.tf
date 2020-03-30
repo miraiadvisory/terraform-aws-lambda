@@ -107,3 +107,7 @@ variable "timeout" {
   type        = string
   default     = 10
 }
+variable "filename" {
+  description = "lambda filename"
+  type = string
+}
