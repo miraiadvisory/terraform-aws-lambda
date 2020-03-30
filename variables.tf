@@ -6,7 +6,7 @@ variable project {
 
 variable environment {
   description = "environment"
-  type        = string
+  type        = map(string)
 }
 
 variable function_name {
