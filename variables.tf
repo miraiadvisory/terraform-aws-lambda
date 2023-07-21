@@ -1,20 +1,20 @@
 
-variable project {
+variable "project" {
   description = "project"
   type        = string
 }
 
-variable environment {
+variable "environment" {
   description = "environment"
   type        = map(string)
 }
 
-variable function_name {
+variable "function_name" {
   description = "Function name"
   type        = string
 }
 
-variable lambda_function {
+variable "lambda_function" {
   description = "name of the lambda file"
   type        = string
 }
@@ -55,24 +55,30 @@ variable "timeout" {
 
 variable "filename" {
   description = "lambda filename"
-  type = string
-  default = ""
+  type        = string
+  default     = ""
 }
 
 variable "sqs_trigger" {
   description = "enable or disable sqs trigger"
   type        = bool
-  default     = false 
-} 
+  default     = false
+}
 
 variable "sqs_queue_arn" {
   description = "arn of sqs for trigger"
   type        = string
-  default = ""
+  default     = ""
 }
 
 variable "stage" {
   description = "stage"
-  type = string
-  default = "dev"
+  type        = string
+  default     = "dev"
+}
+
+variable "memory_size" {
+  description = "Amount of memory in MB your Lambda Function can use at runtime. Defaults to 128."
+  type        = string
+  default     = 128
 }
