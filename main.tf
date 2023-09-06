@@ -21,11 +21,13 @@ data "archive_file" "dummy" {
 ### LAMBDA FUNCTION ###
 resource "aws_lambda_function" "this_function" {
   filename = local.lambda_filename
+  
   lifecycle {
     ignore_changes = [
       filename
     ]
   }
+  
   environment {
     variables = local.env_vars
   }
@@ -37,6 +39,11 @@ resource "aws_lambda_function" "this_function" {
   runtime       = var.runtime
   timeout       = var.timeout
   memory_size   = var.memory_size
+  
+  ephemeral_storage {
+    size = var.ephemeral_storage
+  }
+
   tags = {
     Project = var.project
     Stages  = var.stage

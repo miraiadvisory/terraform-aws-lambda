@@ -82,3 +82,8 @@ variable "memory_size" {
   type        = string
   default     = 128
 }
+
+variable "ephemeral_storage" {
+  description = "Size of the ephemeral storage for each lambda function. Defined in MB"
+  default     = 512
+}
