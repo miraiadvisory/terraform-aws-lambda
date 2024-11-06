@@ -44,6 +44,14 @@ resource "aws_lambda_function" "this_function" {
     size = var.ephemeral_storage
   }
 
+  dynamic "vpc_config" {
+    for_each = var.vpc_subnet_ids != null && var.vpc_security_group_ids != null ? [true] : []
+    content {
+      security_group_ids          = var.vpc_security_group_ids
+      subnet_ids                  = var.vpc_subnet_ids
+    }
+  }
+
   tags = {
     Project = var.project
     Stages  = var.stage
