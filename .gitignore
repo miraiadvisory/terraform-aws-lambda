@@ -1,0 +1,2 @@
+# Ignorar contenido descomprimido de layers, solo commitear ZIPs
+layers/python/
