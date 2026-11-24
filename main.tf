@@ -23,8 +23,10 @@ resource "aws_lambda_function" "this_function" {
   filename = local.lambda_filename
   
   lifecycle {
+    # description: MAT's lambda deployer stamps its release version there
     ignore_changes = [
-      filename
+      filename,
+      description
     ]
   }
   
